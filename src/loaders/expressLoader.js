@@ -8,8 +8,7 @@ const expressLoader = () => {
   // interceptor: to convert every request.body to JSON object
   app.use(express.json());
   app.use(expressLayouts);
-  app.use(require('../controllers/controllers').public);
-
+  app.use(require('../controllers/controllers'));
   return app;
 };
 

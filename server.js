@@ -1,4 +1,4 @@
-const loaders = require('./loaders/loaders');
+const loaders = require('./src/loaders/loaders');
 
 const starter = async () => {
   // intialize the project
