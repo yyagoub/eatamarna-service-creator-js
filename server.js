@@ -1,14 +1,12 @@
-const loaders = require('./src/loaders/loaders');
+const config = require('./src/config/config');
 
 const starter = async () => {
   // intialize the project
-  //const app = express();
-  const server = await loaders();
+  const server = await config();
+  const { PORT = 5000 } = process.env;
   // Server listens on http://localhost:5000
-  const port = process.env.PORT || 5000;
-  // as long as we are using socket.io we need to run `server` instead of `app`
-  server.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+  server.listen(PORT, () => {
+    console.log(`Server is running on port: ${PORT}`);
   });
 };
 
