@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 require('dotenv').config();
 
-const expressConfig = async () => {
+const expressLoader = async () => {
   const server = express();
   // interceptor: to convert every request.body to JSON object
   server.use(express.json());
@@ -20,4 +20,4 @@ const expressConfig = async () => {
   return server;
 };
 
-module.exports = expressConfig;
+module.exports = expressLoader;

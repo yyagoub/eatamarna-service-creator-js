@@ -1,8 +1,8 @@
-const config = require('./src/config/config');
+const loaders = require('./src/loaders');
 
 const starter = async () => {
   // intialize the project
-  const server = await config();
+  const server = await loaders();
   const { PORT = 5000 } = process.env;
   // Server listens on http://localhost:5000
   server.listen(PORT, () => {
