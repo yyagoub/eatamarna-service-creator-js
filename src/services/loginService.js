@@ -3,8 +3,4 @@ const users = [
   { username: 'user', password: 'user' },
 ];
 
-const userLogin = async (user) => {};
-
-const doneUserLogin = () => {};
-
-module.exports = { userLogin, doneUserLogin };
+module.exports = { userLogin: async (user) => {}, doneUserLogin: () => {} };

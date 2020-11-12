@@ -2,7 +2,7 @@ const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
 const express = require('express');
 
-const ejsLoader = async (server) => {
+const ejsLoader = async (server, dashboard) => {
   server.use(expressLayouts);
   // refer static files location - so we can access it directly
   server.use(express.static('public'));
@@ -15,11 +15,9 @@ const ejsLoader = async (server) => {
   server.set('view engine', 'ejs');
   server.set('views', path.join(__dirname, '../../public/views/pages'));
   //server.set('layout', '../../../public/views/layouts/layout-dashboard');
-  server.set(
-    'layout',
-    '../../../public/views/layouts/layout-dashboard',
-    '../../../public/views/layouts/layout'
-  );
+  if (dashboard)
+    server.set('layout', '../../../public/views/layouts/layout-dashboard');
+  else server.set('layout', '../../../public/views/layouts/layout');
 };
 
 module.exports = ejsLoader;

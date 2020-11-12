@@ -1,14 +1,12 @@
 const expressLoader = require('./expressLoader');
 const ejsLoader = require('./ejsLoader');
-const publicRouteLoader = require('./publicRouteLoader');
-const privateRouteLoader = require('./privateRouteLoader');
+const routesLoader = require('./routesLoader');
 
 module.exports = async () => {
   const server = await expressLoader();
   await ejsLoader(server);
   // routes should be the last middle-ware, because it is not apply callback
-  await publicRouteLoader(server);
-  await privateRouteLoader(server);
+  await routesLoader(server);
 
   return server;
 };
